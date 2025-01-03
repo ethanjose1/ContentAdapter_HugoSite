@@ -16,14 +16,14 @@
   {{ with .data }}
   
     {{ $params := dict "title" .title "content" .content }}
-    {{ $content := dict }}
+    {{warnf "content: %s" .content}}
+        {{ $content := dict "mediaType" "text/markdown" "value" .content }}
 
     {{$kind := ""}}
     {{$type := ""}}
     {{ if  .children}}
         {{ $kind = "section" }}
-        {{ $type = "docs"}}
-
+        {{ $type = "topics"}}
     {{ else }}
         {{ $kind = "page" }}
         {{ $type = "docs"}}

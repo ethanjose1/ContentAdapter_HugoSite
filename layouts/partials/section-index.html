@@ -1,0 +1,41 @@
+<style>
+    .tile-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .tile {
+        width: calc(30% - 20px);
+        margin: 10px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+    }
+</style>
+
+<div class="section-tile-index">
+    {{ $parent := .Page }}
+    
+    {{/* Collect only immediate subpages of the current page */}}
+    {{ $pages := (where .Pages "Parent.File.UniqueID" "==" $parent.File.UniqueID) }}
+    
+    {{/* Filter out unnecessary pages */}}
+    {{ $pages = (where $pages "Type" "!=" "search") }}
+    {{ $pages = (where $pages ".Params.hide_summary" "!=" true) }}
+    
+    {{ if or $parent.Params.no_list (eq (len $pages) 0) -}}
+        {{/* If no_list is true or we don't have subpages we don't show a list of subpages */}}
+    {{ else -}}
+        <div class="tile-container">
+            {{ range $pages }}
+                <div class="tile">
+                    <h5>
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h5>
+                </div>
+            {{ end }}
+        </div>
+    {{ end }}
+</div>
