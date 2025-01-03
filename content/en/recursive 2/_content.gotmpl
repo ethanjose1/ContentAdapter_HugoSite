@@ -1,0 +1,44 @@
+{{ with site.Data.topics }}
+  {{ template "walk" (dict "data" .roots "path" "" "ctx" $) }}
+{{ end }}
+
+{{ define "walk" }}
+  {{ range .data }}
+    {{ $path := path.Join $.path .title }}
+    {{ template "add-page" (dict "data" . "path" $path "ctx" $.ctx) }}
+    {{ with .children }}
+      {{ template "walk" (dict "data" . "path" $path "ctx" $.ctx) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ define "add-page" }}
+  {{ with .data }}
+  
+    {{ $params := dict "title" .title "content" .content }}
+    {{ $content := dict }}
+
+    {{$kind := ""}}
+    {{$type := ""}}
+    {{ if  .children}}
+        {{ $kind = "section" }}
+        {{ $type = "docs"}}
+
+    {{ else }}
+        {{ $kind = "page" }}
+        {{ $type = "docs"}}
+    {{ end }}
+
+    
+    {{ $page := dict
+      "content" $content
+      "kind" $kind
+      "params" $params
+      "path" $.path
+      "title" .title
+      "type" $type
+    }}
+
+    {{ $.ctx.AddPage $page }}
+  {{ end }}
+{{ end }}

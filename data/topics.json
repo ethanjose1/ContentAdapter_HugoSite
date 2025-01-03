@@ -1,0 +1,72 @@
+{
+    "roots": [
+        {
+            "title": "School of Mathematics",
+            "content": "Mathematics is the study of numbers, shapes, and patterns.",
+            "children": [
+                {
+                    "title": "Algrebra Department",
+                    "content": "Algebra deals with symbols and rules for manipulating them.",
+                    "children": [
+                        {
+                            "title": "Algrebra 121",
+                            "content": "Algebra deals with symbols and rules for manipulating them."
+                        },
+                        {
+                            "title": "Algrebra 222",
+                            "content": "Algebra deals with symbols and rules for manipulating them.",
+                            "children": [
+                                {
+                                    "title": "Algrebra Recitation 222A",
+                                    "content": "Algebra deals with symbols and rules for manipulating them."
+                                },
+                                {
+                                    "title": "Algrebra Recitation 222B",
+                                    "content": "Algebra deals with symbols and rules for manipulating them."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Geometry Department",
+                    "content": "Geometry is concerned with the properties of space and shapes.",
+                    "children": [
+                        {
+                            "title": "Geometry 112",
+                            "content": "Geometry is concerned with the properties of space and shapes."
+                        },
+                        {
+                            "title": "Geometry 305",
+                            "content": "Geometry is concerned with the properties of space and shapes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "School of Science",
+            "content": "Science is the systematic study of the physical and natural world.",
+            "children": [
+                {
+                    "title": "Physics Department",
+                    "content": "Physics explores the fundamental principles governing energy and matter.", 
+                    "children": [
+                        {
+                            "title": "Physics 101",
+                            "content": "Physics explores the fundamental principles governing energy and matter."
+                        },
+                        {
+                            "title": "Physics 202",
+                            "content": "Physics explores the fundamental principles governing energy and matter."
+                        }
+                    ]
+                },
+                {
+                    "title": "Biology Department",
+                    "content": "Biology is the study of living organisms and their interactions."
+                }
+            ]
+        }
+    ]
+}
